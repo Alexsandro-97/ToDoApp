@@ -17,18 +17,21 @@ class ContentWidget extends StatelessWidget {
           replacement: const Center(
             child: Text('Sua lista está vazia. Adicione uma tarefa!'),
           ),
-          child: ListView.builder(
-              itemCount: state.length,
-              itemBuilder: (context, index) {
-                final task = state[index];
-                final size = MediaQuery.of(context).size;
-                return CardTask(
-                  cubit: cubit,
-                  index: index,
-                  size: size,
-                  task: task,
-                );
-              }),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: ListView.builder(
+                itemCount: state.length,
+                itemBuilder: (context, index) {
+                  final task = state[index];
+                  final size = MediaQuery.of(context).size;
+                  return CardTask(
+                    cubit: cubit,
+                    index: index,
+                    size: size,
+                    task: task,
+                  );
+                }),
+          ),
         );
       },
     );
