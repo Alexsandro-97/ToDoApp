@@ -15,7 +15,15 @@ class ContentWidget extends StatelessWidget {
         return Visibility(
           visible: state.isNotEmpty,
           replacement: const Center(
-            child: Text('Sua lista está vazia. Adicione uma tarefa!'),
+            child: Text(
+              'Sua lista está vazia. Adicione uma tarefa!',
+              style: TextStyle(
+                color: Color(0xFF494655),
+                fontWeight: FontWeight.w500,
+                fontSize: 20,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),

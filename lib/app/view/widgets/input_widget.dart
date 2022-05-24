@@ -42,6 +42,14 @@ class _InputWidgetState extends State<InputWidget> {
         const double sizeButton = 50;
         return Column(
           children: [
+            const Text(
+              'Adicione sua tarefa',
+              style: TextStyle(
+                color: Color(0xFF494655),
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
             Flexible(
               child: TextField(
                 controller: tituloController,
@@ -58,6 +66,7 @@ class _InputWidgetState extends State<InputWidget> {
                 ),
               ),
             ),
+            const Spacer(),
             Align(
               alignment: Alignment.bottomRight,
               child: InkWell(
