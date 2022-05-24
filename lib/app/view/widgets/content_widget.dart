@@ -14,15 +14,18 @@ class ContentWidget extends StatelessWidget {
         final cubit = context.read<TaskBloc>();
         return Visibility(
           visible: state.isNotEmpty,
-          replacement: const Center(
-            child: Text(
-              'Sua lista está vazia. Adicione uma tarefa!',
-              style: TextStyle(
-                color: Color(0xFF494655),
-                fontWeight: FontWeight.w500,
-                fontSize: 20,
+          replacement: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                'Largura: ${MediaQuery.of(context).size.width}\nAltura: ${MediaQuery.of(context).size.height}',
+                style: const TextStyle(
+                  color: Color(0xFF494655),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           child: Padding(

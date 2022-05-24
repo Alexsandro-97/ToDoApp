@@ -23,7 +23,7 @@ class CardTask extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.2,
-      height: size.height * 0.22,
+      height: 150,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(20),
