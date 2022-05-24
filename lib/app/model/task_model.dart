@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+
+@immutable
 class Task {
   final String titulo;
   final String descricao;
