@@ -1,8 +1,9 @@
 import 'package:app_todo/app/controller/task_bloc.dart';
 import 'package:app_todo/app/model/task_model.dart';
-import 'package:app_todo/app/view/widgets/input_widget.dart';
 import 'package:app_todo/app/view/widgets/status_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../screens/task_update_screen.dart';
 
 class CardTask extends StatelessWidget {
   const CardTask({
@@ -58,25 +59,13 @@ class CardTask extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                   padding: const EdgeInsets.all(0),
-                  onPressed: () => {
-                    showModalBottomSheet<void>(
-                      backgroundColor: Colors.transparent,
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Container(
-                          padding: const EdgeInsets.all(20),
-                          height: 261,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(40),
-                              topRight: Radius.circular(40),
-                            ),
-                            color: Colors.white,
-                          ),
-                          child: InputWidget(position: index),
-                        );
-                      },
-                    ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditTaskScreen(index: index),
+                      ),
+                    );
                   },
                   icon: const Icon(Icons.edit),
                 ),
@@ -96,6 +85,12 @@ class CardTask extends StatelessWidget {
                         TextButton(
                           onPressed: () {
                             cubit.removeTask(index);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                backgroundColor: Colors.red,
+                                content: Text('Task removida com sucesso!'),
+                              ),
+                            );
                             Navigator.pop(context, 'Sim');
                           },
                           child: const Text('Sim'),

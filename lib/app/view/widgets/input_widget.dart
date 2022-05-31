@@ -42,14 +42,6 @@ class _InputWidgetState extends State<InputWidget> {
         const double sizeButton = 50;
         return Column(
           children: [
-            const Text(
-              'Adicione sua tarefa',
-              style: TextStyle(
-                color: Color(0xFF494655),
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
             Flexible(
               child: TextField(
                 controller: tituloController,
@@ -58,6 +50,7 @@ class _InputWidgetState extends State<InputWidget> {
                 ),
               ),
             ),
+            const SizedBox(height: 10),
             Flexible(
               child: TextField(
                 controller: descricaoController,
@@ -66,7 +59,7 @@ class _InputWidgetState extends State<InputWidget> {
                 ),
               ),
             ),
-            const Spacer(),
+            const Spacer(flex: 7),
             Align(
               alignment: Alignment.bottomRight,
               child: InkWell(
@@ -77,7 +70,17 @@ class _InputWidgetState extends State<InputWidget> {
                     color: Colors.purple,
                     borderRadius: BorderRadius.all(Radius.circular(4)),
                   ),
-                  child: const Icon(Icons.save, color: Colors.white),
+                  child: widget.position != null
+                      ? const Icon(
+                          Icons.edit,
+                          color: Colors.white,
+                          semanticLabel: 'Editar',
+                        )
+                      : const Icon(
+                          Icons.save,
+                          color: Colors.white,
+                          semanticLabel: 'Salvar',
+                        ),
                 ),
                 onTap: () async {
                   if (widget.position != null) {
@@ -86,9 +89,19 @@ class _InputWidgetState extends State<InputWidget> {
                       titulo: tituloController.text,
                       descricao: descricaoController.text,
                     );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                          content: Text('Task editada com sucesso!')),
+                    );
                   } else {
                     cubit.addTask(
-                        tituloController.text, descricaoController.text);
+                      tituloController.text,
+                      descricaoController.text,
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                          content: Text('Task adicionada com sucesso!')),
+                    );
                   }
                   tituloController.clear();
                   descricaoController.clear();
