@@ -1,8 +1,19 @@
-# app_todo
+# Desafio MyTasks
 
-A new Flutter project.
+Desafio conciste em desenvolver um aplicativo de gerenciamento de tarefas "Tasks".
 
-## Getting Started
+Objetivo:
+- [x] Adicionar, remover e atualizar tasks
+- [ ] Armazenamento internto das tasks
+- [ ] Testes unitários das tasks
+
+Design do projeto no Figma: [Clique aqui para abrir o design do projeto](https://www.figma.com/file/Uo1XRqFgpMF8N81jCCROgt/My-Tasks-App?node-id=0%3A1) 
+
+Gerenciamento de estado feito com BLoC(Cubit)
+
+## Como rodar o projeto na sua máquina
+
+- Clone este projeto na sua máquina; 
 
 This project is a starting point for a Flutter application.
 
